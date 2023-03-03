@@ -1,0 +1,194 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Uw-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvr6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCs16Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu170w-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf) format('truetype');
+}
+::root {
+  font-size: 1.11111111vw;
+}
+.coin {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 4rem;
+  width: 4rem;
+  background: white;
+  background-size: 100% 100%;
+  border-radius: 100%;
+  transition: 1s linear;
+  transform-style: preserve-3d;
+  animation-fill-mode: forwards;
+}
+.coin img {
+  width: 1.5rem;
+}
+.coin:before {
+  position: absolute;
+  content: '';
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  height: 4rem;
+  width: 4rem;
+  left: 0;
+  top: 0;
+  background: white;
+  border-radius: 100%;
+  transform: translateZ(-5px);
+  animation-fill-mode: forwards;
+}
+.coin:after {
+  position: absolute;
+  content: '';
+  background-color: transparent;
+  width: 5px;
+  top: 0;
+  bottom: 0;
+  left: 45px;
+  transform: rotateY(-90deg);
+  transform-origin: 100% 50%;
+  z-index: -1;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.card {
+  position: relative;
+}
+.card-image {
+  width: 45rem;
+  height: auto;
+  aspect-ratio: 765 / 400;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.card-content {
+  width: 25rem;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+.card-text > p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+.card-text > h2 {
+  font-size: 1.8rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+.card::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  max-width: 0;
+  max-height: 0;
+  background-color: rgba(49, 159, 230, 0.2);
+  transition: 0.3s ease-out;
+}
+.card.hover::after {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card.hover .coin {
+  animation: spin-forward 1.2s forwards;
+}
+.card.normal .coin {
+  animation: spin-back 1.2s forwards;
+}
+@keyframes spin-forward {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  25% {
+    transform: rotate3d(3, 5, 3, 180deg);
+  }
+  75% {
+    transform: rotate3d(3, 5, 3, 180deg);
+    background: white;
+  }
+  76% {
+    background: #66B43D;
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0deg);
+    background: #66B43D;
+  }
+}
+@keyframes spin-back {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+    background: #66B43D;
+  }
+  25% {
+    transform: rotate3d(3, 5, 3, 180deg);
+    background: white;
+  }
+  75% {
+    transform: rotate3d(3, 5, 3, 180deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0deg);
+    background: white;
+  }
+}
